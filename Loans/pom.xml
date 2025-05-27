@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>Loans</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>Loans</name>
 	<description>Spring Project for loan service</description>
 	<url/>
@@ -92,6 +93,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>mkmeena97/loans:aspl-bank-loanmicroservice</name>
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
