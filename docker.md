@@ -313,7 +313,64 @@ docker run -d -p 8082:8082 mkmeena97/cards:aspl-cards-microservice
 
 ---
 
+# Docker Hub: Push and Pull Docker Images
 
+## Prerequisites
+
+- Docker must be installed and running.
+- You should have a [Docker Hub account](https://hub.docker.com/).
+- Login to Docker from CLI using:
+
+```bash
+docker login
+```
+## How to Push Docker Image to Docker Hub
+**Step 1:** Tag the Image
+Use the docker tag command to rename your local image for Docker Hub:
+
+```bash
+docker tag <local-image-name> <dockerhub-username>/<repo-name>:<tag>
+```
+example 
+```bash
+docker tag accounts mkmeena97/accounts:latest
+```
+**Step 2:** Push the Image
+Push the tagged image to Docker Hub:
+
+```bash
+docker push <dockerhub-username>/<repo-name>:<tag>
+```
+Example:
+
+```bash
+docker push mkmeena97/accounts:latest
+```
+
+## How to Pull Docker Image from Docker Hub
+To download the image on any system:
+
+```bash
+docker pull <dockerhub-username>/<repo-name>:<tag>
+```
+Example:
+
+```bash
+docker pull mkmeena97/accounts:latest
+```
+## Helpful Commands
+List local images:
+
+```bash
+docker images
+```
+Remove local image:
+
+```bash
+docker rmi <image-name>
+```
+
+---
 
 
 
