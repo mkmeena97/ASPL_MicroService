@@ -202,19 +202,16 @@ Make sure your `pom.xml` includes this at the top level (inside `<project>`):
 ```xml
 <packaging>jar</packaging>
 This enables packaging your application as a jar file for containerization.
-
-Approach 1: Using a Dockerfile (Traditional Method)
-Step 1: Set packaging in pom.xml
+```
+### ***Approach 1:*** Using a Dockerfile (Traditional Method)
+**Step 1:** Set packaging in pom.xml
 Ensure your pom.xml has:
 
-xml
-Copy
-Edit
+```xml
 <packaging>jar</packaging>
-Step 2: Create a Dockerfile in your project root folder
-dockerfile
-Copy
-Edit
+```
+**Step 2:** Create a Dockerfile in your project root folder
+```dockerfile
 # Start with base image that has Java 24 runtime
 FROM openjdk:24-jdk-slim
 
@@ -225,27 +222,24 @@ COPY target/Account-0.0.1-SNAPSHOT.jar account-0.0.1-SNAPSHOT.jar
 
 # Run the jar file
 ENTRYPOINT ["java", "-jar", "account-0.0.1-SNAPSHOT.jar"]
-Step 3: Build the Docker image
+```
+**Step 3:** Build the Docker image
 Open terminal in project root and run:
 
-bash
-Copy
-Edit
+```
 docker build . -t mkmeena97/accounts:aspl-bank-microservice
-Step 4: Run the Docker container
-bash
-Copy
-Edit
+```
+**Step 4:** Run the Docker container
+```
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
-Approach 2: Using Spring Boot Maven Plugin build-image
+```
+### ***Approach 2:*** Using Spring Boot Maven Plugin build-image
 Spring Boot can create Docker images without writing a Dockerfile.
 
-Step 1: Update pom.xml to set packaging and image config
+**Step 1:** Update pom.xml to set packaging and image config
 Add or update the following inside your <project> tag, preferably under <build><plugins>:
 
-xml
-Copy
-Edit
+```xml
 <packaging>jar</packaging>
 
 <build>
@@ -261,27 +255,23 @@ Edit
     </plugin>
   </plugins>
 </build>
-Step 2: Build Docker image via Maven
+```
+**Step 2:** Build Docker image via Maven
 Run this command in terminal:
-
-bash
-Copy
-Edit
+```
 mvn spring-boot:build-image
-Step 3: Run the Docker container
-bash
-Copy
-Edit
+```
+**Step 3:** Run the Docker container
+```
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
-Approach 3: Using Google Jib Maven Plugin
+```
+### ***Approach 3:*** Using Google Jib Maven Plugin
 Jib builds optimized Docker images without Dockerfile or Docker daemon.
 
-Step 1: Configure your pom.xml
+**Step 1:** Configure your pom.xml
 Inside <build><plugins> add:
 
-xml
-Copy
-Edit
+```xml
 <packaging>jar</packaging>
 
 <build>
@@ -301,60 +291,27 @@ Edit
     </plugin>
   </plugins>
 </build>
-Step 2: Build Docker image with Jib
+```
+**Step 2:** Build Docker image with Jib
 Run in terminal:
 
-bash
-Copy
-Edit
+```bash
 mvn clean compile jib:dockerBuild
-Step 3: Run the Docker container
-bash
-Copy
-Edit
+```
+**Step 3:** Run the Docker container
+```bash
 docker run -d -p 8082:8082 mkmeena97/cards:aspl-cards-microservice
-Summary Table
-Approach	Build Command	Run Command	Notes
-Dockerfile	docker build . -t <image-name>	docker run -d -p 8080:8080 <image-name>	Classic method, manual Dockerfile
-Spring Boot build-image	mvn spring-boot:build-image	docker run -d -p 8080:8080 <image-name>	No Dockerfile, easy with Spring Boot
-Google Jib Maven plugin	mvn clean compile jib:dockerBuild	docker run -d -p 8082:8082 <image-name>	No Dockerfile, optimized layering
+```
 
-Additional Notes
-Replace mkmeena97 and ${project.artifactId} with your actual Docker Hub username and artifact ID.
+**Additional Notes**
+- Replace mkmeena97 and ${project.artifactId} with your actual Docker Hub username and artifact ID.
 
-Ensure the base image Java version matches your project Java version to avoid compatibility issues.
+- Ensure the base image Java version matches your project Java version to avoid compatibility issues.
 
-Use docker ps to check running containers and docker logs <container_id> for logs.
-
-yaml
-Copy
-Edit
+- Use ``` docker ps ``` to check running containers and docker logs <container_id> for logs.
 
 ---
 
-### How to save this?
-
-1. Copy everything from the first `# Complete Guide...` line **down to the last line** exactly as above, including all triple backticks and indentation.
-2. Paste it into your favorite text editor (VS Code, Notepad++, etc.).
-3. Save the file with `.md` extension — for example: `docker-build-guide.md`
-4. Open this `.md` file in any Markdown viewer, VS Code preview, GitHub, or any place that renders Markdown — it will look clean, organized, and readable.
-
----
-
-### TL;DR
-
-- The raw text you showed me is missing the **triple backticks** around code blocks.
-- It also needs line breaks after headers and list items.
-- You must **not** copy UI elements like “Copy Edit” or indentation artifacts.
-- You want a **pure markdown text file** with proper formatting that renders nicely everywhere.
-
----
-
-If you want, I can prepare and upload the exact `.md` file as a downloadable file for you, so no copying hassles — just let me know.
-
----
-
-Sound good, Tez? Want me to do that now?
 
 
 
