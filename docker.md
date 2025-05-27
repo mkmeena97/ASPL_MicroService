@@ -234,7 +234,7 @@ docker build . -t mkmeena97/accounts:aspl-bank-microservice
 ```bash
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
 ```
-### ***Approach 2:*** Using Spring Boot Maven Plugin build-image
+### ***Approach 2:*** Using Spring Boot Maven Plugin build-image(dockerbuild.io)
 Spring Boot can create Docker images without writing a Dockerfile.
 
 **Step 1:** Update pom.xml to set packaging and image config
