@@ -371,9 +371,117 @@ docker rmi <image-name>
 ```
 
 ---
+# Docker Compose: Overview and Example
 
+---
 
+## What is Docker Compose?
 
+Docker Compose is a tool for defining and running multi-container Docker applications.  
+Using a simple YAML file (`docker-compose.yml`), you can configure all your app’s services, networks, and volumes, and manage them together with simple commands.
 
+It’s especially useful when your app consists of multiple microservices (like accounts, loans, cards), each running in its own container but working together.
 
+---
 
+## Example `docker-compose.yml`
+
+```yaml
+version: "3.8"
+
+services:
+  accounts:
+    image: "mkmeena97/accounts:aspl-bank-microservice"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - aspl
+
+  loans:
+    image: "mkmeena97/loans:aspl-bank-microservice"
+    container_name: loans-ms
+    ports:
+      - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - aspl
+
+  cards:
+    image: "mkmeena97/cards:aspl-bank-microservice"
+    container_name: cards-ms
+    ports:
+      - "8082:8082"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - aspl
+
+networks:
+  aspl:
+    driver: "bridge"
+```
+## Explanation of the Compose File
+1. **Services**
+Each service represents a container in your application:
+
+- ```accounts, loans, cards:``` These are your three microservices.
+
+- ```image:``` Specifies which Docker image to use.
+
+- ```container_name:``` Gives a custom name to the container instead of a random default.
+
+- ```ports:``` Maps the container’s internal port to a port on your host machine (hostPort:containerPort).
+
+- ```deploy.resources.limits.memory:``` Limits memory usage to prevent containers from hogging all system RAM.
+
+- ```networks:``` Assigns containers to a user-defined network (aspl), enabling them to communicate with each other easily.
+
+2. **Networks**
+- Defines a custom bridge network named aspl.
+
+- The bridge driver creates an isolated network so containers can discover and communicate by service name.
+
+## Key Docker Compose Commands
+| Command                  | Description                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------- |
+| `docker compose up -d`   | Builds, (re)creates, starts all containers in detached mode (runs in the background).   |
+| `docker compose down`    | Stops and removes containers, networks, and default volumes created by `up`.            |
+| `docker compose start`   | Starts existing stopped containers without recreating them.                             |
+| `docker compose stop`    | Stops running containers without removing them (you can start again later).             |
+| `docker compose restart` | Stops and starts containers, useful for applying config changes or refreshing services. |
+| `docker compose ps`      | Lists all containers managed by the Compose file with their status and ports.           |
+| `docker compose logs`    | Shows logs of the containers, helpful for debugging and monitoring.                     |
+| `docker compose build`   | Builds images defined in the Compose file (if you use `build:` instead of `image:`).    |
+| `docker compose pull`    | Pulls updated images from Docker Hub or other registries for all services.              |
+
+## How Docker Compose Works
+- You write a declarative YAML file describing your multi-container app.
+
+- ```docker compose up``` reads this file, pulls images if needed, creates containers, sets up networks, and starts everything in correct order.
+
+- Networking inside the custom bridge network allows containers to talk to each other using service names (like `accounts`, `loans`, `cards`).
+
+- Resource limits help ensure containers don’t consume more memory or CPU than allowed.
+
+- You manage lifecycle (start/stop/restart) for the entire app or individual services easily with commands.
+
+## Additional Tips
+- Use volumes to persist data beyond container lifecycle (`volumes:` key in Compose).
+
+- You can scale services (e.g., `docker compose up --scale loans=3`) to run multiple instances.
+
+- Environment variables can be set per service using `environment:` for config.
+
+- Docker Compose v2+ integrates natively with Docker CLI as `docker compose` (space-separated), but older versions use `docker-compose` (hyphen).
+
+- Always version your Compose file (`version: "3.8"` recommended for most use cases).
