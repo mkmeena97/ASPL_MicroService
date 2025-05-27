@@ -201,8 +201,9 @@ Make sure your `pom.xml` includes this at the top level (inside `<project>`):
 
 ```xml
 <packaging>jar</packaging>
-This enables packaging your application as a jar file for containerization.
 ```
+This enables packaging your application as a jar file for containerization.
+
 ### ***Approach 1:*** Using a Dockerfile (Traditional Method)
 **Step 1:** Set packaging in pom.xml
 Ensure your pom.xml has:
