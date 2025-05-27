@@ -227,11 +227,11 @@ ENTRYPOINT ["java", "-jar", "account-0.0.1-SNAPSHOT.jar"]
 **Step 3:** Build the Docker image
 Open terminal in project root and run:
 
-```
+```bash
 docker build . -t mkmeena97/accounts:aspl-bank-microservice
 ```
 **Step 4:** Run the Docker container
-```
+```bash
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
 ```
 ### ***Approach 2:*** Using Spring Boot Maven Plugin build-image
@@ -259,11 +259,11 @@ Add or update the following inside your <project> tag, preferably under <build><
 ```
 **Step 2:** Build Docker image via Maven
 Run this command in terminal:
-```
+```bash
 mvn spring-boot:build-image
 ```
 **Step 3:** Run the Docker container
-```
+```bash
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
 ```
 ### ***Approach 3:*** Using Google Jib Maven Plugin
