@@ -1,0 +1,39 @@
+server:
+  port: 8080
+springdoc:
+  api-docs:
+    version: openapi_3_0
+spring:
+  name: Account
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: raju
+    password: ''
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+
+build:
+  version: "3.1"
+
+accounts:
+  message: "Welcome to ASPL_bank account related local APIs"
+  contactDetails:
+    name: "Mahendra M - Developer"
+    email: "mahendra.m@audilitycssolutions"
+  onCallSupport:
+    - 7665770360
+    - 7665770361
