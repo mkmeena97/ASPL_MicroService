@@ -201,20 +201,18 @@ Make sure your `pom.xml` includes this at the top level (inside `<project>`):
 
 ```xml
 <packaging>jar</packaging>
+```
 This enables packaging your application as a jar file for containerization.
 
-Approach 1: Using a Dockerfile (Traditional Method)
-Step 1: Set packaging in pom.xml
+### ***Approach 1:*** Using a Dockerfile (Traditional Method)
+**Step 1:** Set packaging in pom.xml
 Ensure your pom.xml has:
 
-xml
-Copy
-Edit
+```xml
 <packaging>jar</packaging>
-Step 2: Create a Dockerfile in your project root folder
-dockerfile
-Copy
-Edit
+```
+**Step 2:** Create a Dockerfile in your project root folder
+```dockerfile
 # Start with base image that has Java 24 runtime
 FROM openjdk:24-jdk-slim
 
@@ -225,27 +223,24 @@ COPY target/Account-0.0.1-SNAPSHOT.jar account-0.0.1-SNAPSHOT.jar
 
 # Run the jar file
 ENTRYPOINT ["java", "-jar", "account-0.0.1-SNAPSHOT.jar"]
-Step 3: Build the Docker image
+```
+**Step 3:** Build the Docker image
 Open terminal in project root and run:
 
-bash
-Copy
-Edit
+```bash
 docker build . -t mkmeena97/accounts:aspl-bank-microservice
-Step 4: Run the Docker container
-bash
-Copy
-Edit
+```
+**Step 4:** Run the Docker container
+```bash
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
-Approach 2: Using Spring Boot Maven Plugin build-image
+```
+### ***Approach 2:*** Using Spring Boot Maven Plugin build-image(dockerbuild.io)
 Spring Boot can create Docker images without writing a Dockerfile.
 
-Step 1: Update pom.xml to set packaging and image config
+**Step 1:** Update pom.xml to set packaging and image config
 Add or update the following inside your <project> tag, preferably under <build><plugins>:
 
-xml
-Copy
-Edit
+```xml
 <packaging>jar</packaging>
 
 <build>
@@ -261,27 +256,23 @@ Edit
     </plugin>
   </plugins>
 </build>
-Step 2: Build Docker image via Maven
+```
+**Step 2:** Build Docker image via Maven
 Run this command in terminal:
-
-bash
-Copy
-Edit
+```bash
 mvn spring-boot:build-image
-Step 3: Run the Docker container
-bash
-Copy
-Edit
+```
+**Step 3:** Run the Docker container
+```bash
 docker run -d -p 8080:8080 mkmeena97/accounts:aspl-bank-microservice
-Approach 3: Using Google Jib Maven Plugin
+```
+### ***Approach 3:*** Using Google Jib Maven Plugin
 Jib builds optimized Docker images without Dockerfile or Docker daemon.
 
-Step 1: Configure your pom.xml
+**Step 1:** Configure your pom.xml
 Inside <build><plugins> add:
 
-xml
-Copy
-Edit
+```xml
 <packaging>jar</packaging>
 
 <build>
@@ -301,64 +292,196 @@ Edit
     </plugin>
   </plugins>
 </build>
-Step 2: Build Docker image with Jib
+```
+**Step 2:** Build Docker image with Jib
 Run in terminal:
 
-bash
-Copy
-Edit
+```bash
 mvn clean compile jib:dockerBuild
-Step 3: Run the Docker container
-bash
-Copy
-Edit
+```
+**Step 3:** Run the Docker container
+```bash
 docker run -d -p 8082:8082 mkmeena97/cards:aspl-cards-microservice
-Summary Table
-Approach	Build Command	Run Command	Notes
-Dockerfile	docker build . -t <image-name>	docker run -d -p 8080:8080 <image-name>	Classic method, manual Dockerfile
-Spring Boot build-image	mvn spring-boot:build-image	docker run -d -p 8080:8080 <image-name>	No Dockerfile, easy with Spring Boot
-Google Jib Maven plugin	mvn clean compile jib:dockerBuild	docker run -d -p 8082:8082 <image-name>	No Dockerfile, optimized layering
+```
 
-Additional Notes
-Replace mkmeena97 and ${project.artifactId} with your actual Docker Hub username and artifact ID.
+**Additional Notes**
+- Replace mkmeena97 and ${project.artifactId} with your actual Docker Hub username and artifact ID.
 
-Ensure the base image Java version matches your project Java version to avoid compatibility issues.
+- Ensure the base image Java version matches your project Java version to avoid compatibility issues.
 
-Use docker ps to check running containers and docker logs <container_id> for logs.
-
-yaml
-Copy
-Edit
+- Use ``` docker ps ``` to check running containers and docker logs <container_id> for logs.
 
 ---
 
-### How to save this?
+# Docker Hub: Push and Pull Docker Images
 
-1. Copy everything from the first `# Complete Guide...` line **down to the last line** exactly as above, including all triple backticks and indentation.
-2. Paste it into your favorite text editor (VS Code, Notepad++, etc.).
-3. Save the file with `.md` extension — for example: `docker-build-guide.md`
-4. Open this `.md` file in any Markdown viewer, VS Code preview, GitHub, or any place that renders Markdown — it will look clean, organized, and readable.
+## Prerequisites
+
+- Docker must be installed and running.
+- You should have a [Docker Hub account](https://hub.docker.com/).
+- Login to Docker from CLI using:
+
+```bash
+docker login
+```
+## How to Push Docker Image to Docker Hub
+**Step 1:** Tag the Image
+Use the docker tag command to rename your local image for Docker Hub:
+
+```bash
+docker tag <local-image-name> <dockerhub-username>/<repo-name>:<tag>
+```
+example 
+```bash
+docker tag accounts mkmeena97/accounts:latest
+```
+**Step 2:** Push the Image
+Push the tagged image to Docker Hub:
+
+```bash
+docker push <dockerhub-username>/<repo-name>:<tag>
+```
+Example:
+
+```bash
+docker push mkmeena97/accounts:latest
+```
+
+## How to Pull Docker Image from Docker Hub
+To download the image on any system:
+
+```bash
+docker pull <dockerhub-username>/<repo-name>:<tag>
+```
+Example:
+
+```bash
+docker pull mkmeena97/accounts:latest
+```
+## Helpful Commands
+List local images:
+
+```bash
+docker images
+```
+Remove local image:
+
+```bash
+docker rmi <image-name>
+```
+
+---
+# Docker Compose: Overview and Example
 
 ---
 
-### TL;DR
+## What is Docker Compose?
 
-- The raw text you showed me is missing the **triple backticks** around code blocks.
-- It also needs line breaks after headers and list items.
-- You must **not** copy UI elements like “Copy Edit” or indentation artifacts.
-- You want a **pure markdown text file** with proper formatting that renders nicely everywhere.
+Docker Compose is a tool for defining and running multi-container Docker applications.  
+Using a simple YAML file (`docker-compose.yml`), you can configure all your app’s services, networks, and volumes, and manage them together with simple commands.
 
----
-
-If you want, I can prepare and upload the exact `.md` file as a downloadable file for you, so no copying hassles — just let me know.
+It’s especially useful when your app consists of multiple microservices (like accounts, loans, cards), each running in its own container but working together.
 
 ---
 
-Sound good, Tez? Want me to do that now?
+## Example `docker-compose.yml`
 
+```yaml
+version: "3.8"
 
+services:
+  accounts:
+    image: "mkmeena97/accounts:aspl-bank-microservice"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - aspl
 
+  loans:
+    image: "mkmeena97/loans:aspl-bank-microservice"
+    container_name: loans-ms
+    ports:
+      - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - aspl
 
+  cards:
+    image: "mkmeena97/cards:aspl-bank-microservice"
+    container_name: cards-ms
+    ports:
+      - "8082:8082"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - aspl
 
+networks:
+  aspl:
+    driver: "bridge"
+```
+## Explanation of the Compose File
+1. **Services**
+Each service represents a container in your application:
 
+- ```accounts, loans, cards:``` These are your three microservices.
 
+- ```image:``` Specifies which Docker image to use.
+
+- ```container_name:``` Gives a custom name to the container instead of a random default.
+
+- ```ports:``` Maps the container’s internal port to a port on your host machine (hostPort:containerPort).
+
+- ```deploy.resources.limits.memory:``` Limits memory usage to prevent containers from hogging all system RAM.
+
+- ```networks:``` Assigns containers to a user-defined network (aspl), enabling them to communicate with each other easily.
+
+2. **Networks**
+- Defines a custom bridge network named aspl.
+
+- The bridge driver creates an isolated network so containers can discover and communicate by service name.
+
+## Key Docker Compose Commands
+| Command                  | Description                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------- |
+| `docker compose up -d`   | Builds, (re)creates, starts all containers in detached mode (runs in the background).   |
+| `docker compose down`    | Stops and removes containers, networks, and default volumes created by `up`.            |
+| `docker compose start`   | Starts existing stopped containers without recreating them.                             |
+| `docker compose stop`    | Stops running containers without removing them (you can start again later).             |
+| `docker compose restart` | Stops and starts containers, useful for applying config changes or refreshing services. |
+| `docker compose ps`      | Lists all containers managed by the Compose file with their status and ports.           |
+| `docker compose logs`    | Shows logs of the containers, helpful for debugging and monitoring.                     |
+| `docker compose build`   | Builds images defined in the Compose file (if you use `build:` instead of `image:`).    |
+| `docker compose pull`    | Pulls updated images from Docker Hub or other registries for all services.              |
+
+## How Docker Compose Works
+- You write a declarative YAML file describing your multi-container app.
+
+- ```docker compose up``` reads this file, pulls images if needed, creates containers, sets up networks, and starts everything in correct order.
+
+- Networking inside the custom bridge network allows containers to talk to each other using service names (like `accounts`, `loans`, `cards`).
+
+- Resource limits help ensure containers don’t consume more memory or CPU than allowed.
+
+- You manage lifecycle (start/stop/restart) for the entire app or individual services easily with commands.
+
+## Additional Tips
+- Use volumes to persist data beyond container lifecycle (`volumes:` key in Compose).
+
+- You can scale services (e.g., `docker compose up --scale loans=3`) to run multiple instances.
+
+- Environment variables can be set per service using `environment:` for config.
+
+- Docker Compose v2+ integrates natively with Docker CLI as `docker compose` (space-separated), but older versions use `docker-compose` (hyphen).
+
+- Always version your Compose file (`version: "3.8"` recommended for most use cases).
