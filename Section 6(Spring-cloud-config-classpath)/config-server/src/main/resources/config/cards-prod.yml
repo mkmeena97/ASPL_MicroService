@@ -1,0 +1,12 @@
+
+build:
+  version: "1.1"
+
+cards:
+  message: "Welcome to ASPL_bank Cards related Production APIs"
+  contactDetails:
+    name: "Tejas - Product Lead"
+    email: "tejas@audilitycssolutions"
+  onCallSupport:
+    - 9685745869
+    - 9475869646
