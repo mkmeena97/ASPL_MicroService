@@ -3,12 +3,24 @@ spring:
   application:
     name: "config-server"
   profiles:
-    active: native
+    active: git
+    #active: native #(only use when reading configurations from classpath or file System)
   cloud:
     config:
       server:
-        native:
-          search-locations: "classpath:/config"
+        git:
+          uri: "https://github.com/mkmeena97/ASPL-config-server.git"
+          username: mkmeena97
+          password: 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
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+        #native:
+          #search-locations: "file:///C://Users//mahendra//Desktop//ASPL//config"
+          #search-locations: "classpath:/config"
+encrypt:
+  key: "37DR56hDhTfh#$%%%38"
 
 server:
   port: 8071
