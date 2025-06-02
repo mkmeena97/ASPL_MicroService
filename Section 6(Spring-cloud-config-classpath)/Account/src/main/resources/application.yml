@@ -5,7 +5,7 @@ springdoc:
     version: openapi_3_0
 spring:
   application:
-    name: "accounts"
+    name: "loans"
   profiles:
     active: "prod"
   datasource:
