@@ -11,7 +11,7 @@ spring:
         git:
           uri: "https://github.com/mkmeena97/ASPL-config-server.git"
           username: mkmeena97
-          password: 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
+          password: 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
           default-label: main
           timeout: 5
           clone-on-start: true
