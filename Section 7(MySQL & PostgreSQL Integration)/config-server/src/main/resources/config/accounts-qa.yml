@@ -1,0 +1,12 @@
+
+build:
+  version: "2.1"
+
+accounts:
+  message: "Welcome to ASPL_bank account related QA APIs"
+  contactDetails:
+    name: "Rituraj Y - QA Lead"
+    email: "rituraj.y@audilitycssolutions"
+  onCallSupport:
+    - 8546975854
+    - 8754965875
