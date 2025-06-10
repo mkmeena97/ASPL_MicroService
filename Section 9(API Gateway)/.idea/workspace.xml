@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7028e3d7-b5db-4ac0-a4b2-08308c716e88" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Account/src/main/java/com/example/Account/service/ICustomersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gatewayserver/src/main/java/com/example/gatewayserver/filter/FilterUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gatewayserver/src/main/java/com/example/gatewayserver/filter/RequestTraceFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gatewayserver/src/main/java/com/example/gatewayserver/filter/ResponseTraceFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Section 8(Service Discovery &amp; feign client)/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 8(Service Discovery &amp; feign client)/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +54,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mahendra/Desktop/ASPL/ASPL_MicroService/Section 9(API Gateway)/gatewayserver"
+    "last_opened_file_path": "C:/Users/mahendra/Desktop/ASPL/ASPL_MicroService/Section 10(Resilience4j & circuit breaker & Rate Rimiter)"
   }
 }]]></component>
   <component name="RunManager" selected="Application.GatewayserverApplication">

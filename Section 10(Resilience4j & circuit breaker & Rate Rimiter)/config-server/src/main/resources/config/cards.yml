@@ -1,0 +1,11 @@
+build:
+  version: "3.1"
+
+cards:
+  message: "Welcome to ASPL_bank Cards related local APIs"
+  contactDetails:
+    name: "Mahendra M - Developer"
+    email: "mahendra.m@audilitycssolutions"
+  onCallSupport:
+    - 7665770360
+    - 7665770361
