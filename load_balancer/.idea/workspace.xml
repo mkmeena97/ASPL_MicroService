@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1d462b6e-c674-4735-ad52-f818bb917f84" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/AccountBalanceDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/AddMoneyRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/ChangeAccountTypeRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/FreezeUnfreezeRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/MiniStatementRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/TransactionDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/TransferMoneyRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/entities/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/enums/AccountStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/enums/TransactionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/TransactionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/repository/TransactionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/ITransactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/Impl/TransactionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/test/java/com/example/Account/controller/AccountsControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/test/java/com/example/Account/service/AccountServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/config/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/config/SecurityBeansConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/ForgotPasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/ProfileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/ProfileUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/RefreshTokenRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/dto/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/service/KeycloakService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/controllers/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/controllers/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/AccountsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/AccountsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/CustomerDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/CustomerDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/CustomerDetailsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/CustomerDetailsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/dto/CustomerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/entities/Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/entities/Accounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/entities/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/AccountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/CustomerDetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/CustomerDetailsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/mapper/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/repository/AccountsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/repository/AccountsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/IAccountsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/IAccountsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/Impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/Impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/Impl/CustomersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/java/com/example/Account/service/Impl/CustomersServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/test/java/com/example/Account/AccountApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Account/src/test/java/com/example/Account/AccountApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/Cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/Cards/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/config/KeyCloakRoleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/config/KeyCloakRoleConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/java/com/example/gatewayserver/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Section 12(Microservice Security)/gatewayserver/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mkmeena97"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mkmeena97/ASPL_MicroService.git",
+    "accountId": "2d1e837a-0e78-49f6-85df-6ceafd0cf555"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="30rpC6ekKIqi6a0kTRIcA6YHs7F" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mahendra/Desktop/ASPL/ASPL_MicroService/Saga-pattern"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1d462b6e-c674-4735-ad52-f818bb917f84" name="Changes" comment="" />
+      <created>1754395415237</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754395415237</updated>
+    </task>
+    <servers />
+  </component>
+</project>

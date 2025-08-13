@@ -1,0 +1,32 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order-service
+  zipkin:
+    base-url: http://localhost:9411
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,trace
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0 # 100% sampling (reduce in prod)
+    propagation:
+      type: b3          # Zipkin-compatible headers
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

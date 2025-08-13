@@ -22,38 +22,57 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CustomersServiceImpl implements ICustomersService {
 
-    private AccountsRepository accountsRepository;
-    private CustomerRepository customerRepository;
-    private CardsFeignClient cardsFeignClient;
-    private LoansFeignClient loansFeignClient;
+    private final AccountsRepository accountsRepository;
+    private final CustomerRepository customerRepository;
+    private final CardsFeignClient cardsFeignClient;
+    private final LoansFeignClient loansFeignClient;
 
     /**
+     * @param correlationId - For tracing, if needed.
      * @param mobileNumber - Input Mobile Number
-     * @return Customer Details based on a given mobileNumber
+     * @return CustomerDetailDto with all details
      */
     @Override
-    public CustomerDetailDto fetchCustomerDetails( String correlationId, String mobileNumber) {
-        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
-                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
-        );
-        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
-                () -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
-        );
+    public CustomerDetailDto fetchCustomerDetails(String correlationId, String mobileNumber) {
 
-        CustomerDetailDto customerDetailDto = CustomerMapper.mapToCustomerDetailDto(customer, new CustomerDetailDto());
-        customerDetailDto.setAccountsDto(AccountMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        // 1. Fetch customer by mobile
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber));
 
+        // 2. Fetch account by customerId
+        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId())
+                .orElseThrow(() -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString()));
+
+        // 3. Map to CustomerDetailDto (assumes you have a DTO that combines all info in a nested way)
+        CustomerDetailDto customerDetailDto = new CustomerDetailDto();
+
+        // Set customer fields
+        customerDetailDto.setCustomerId(customer.getCustomerId());
+        customerDetailDto.setName(customer.getName());
+        customerDetailDto.setEmail(customer.getEmail());
+        customerDetailDto.setMobileNumber(customer.getMobileNumber());
+
+        // Set account fields using mapper (adapt mapper or inline as needed)
+        AccountsDto accountsDto = new AccountsDto();
+        accountsDto.setAccountNumber(accounts.getAccountNumber());
+        accountsDto.setAccountType(accounts.getAccountType());
+        accountsDto.setBranchAddress(accounts.getBranchAddress());
+        accountsDto.setBalance(accounts.getBalance());
+        accountsDto.setStatus(String.valueOf(accounts.getStatus()));
+        customerDetailDto.setAccountsDto(accountsDto);
+
+        // 4. Fetch and set loans info
         ResponseEntity<LoansDto> loansDtoResponseEntity = loansFeignClient.fetchLoanDetails(correlationId, mobileNumber);
-        if(null != loansDtoResponseEntity) {
+        if (loansDtoResponseEntity != null && loansDtoResponseEntity.getBody() != null) {
             customerDetailDto.setLoansDto(loansDtoResponseEntity.getBody());
         }
 
+        // 5. Fetch and set cards info
         ResponseEntity<CardsDto> cardsDtoResponseEntity = cardsFeignClient.fetchCardDetails(correlationId, mobileNumber);
-        if(null != cardsDtoResponseEntity) {
+        if (cardsDtoResponseEntity != null && cardsDtoResponseEntity.getBody() != null) {
             customerDetailDto.setCardsDto(cardsDtoResponseEntity.getBody());
         }
 
         return customerDetailDto;
-
     }
 }

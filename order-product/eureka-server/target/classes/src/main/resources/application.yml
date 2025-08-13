@@ -1,0 +1,22 @@
+
+server:
+  port: 8761
+  ssl:
+    enabled: false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    tls:
+      enabled: true
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          key-store: classpath:client-keystore.jks
+          key-store-password: changeit
+          trust-store: classpath:client-truststore.jks
+          trust-store-password: changeit

@@ -8,6 +8,6 @@ class AccountApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// This test ensures the Spring application context loads correctly.
 	}
-
 }
