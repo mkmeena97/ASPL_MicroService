@@ -22,7 +22,7 @@ spring:
           predicates:
             - Path=/products, /products/**
 
-
+# Zipkin Configuration
 management:
   tracing:
     enabled: true
